@@ -2,6 +2,8 @@
 
 require 'sinatra'
 
+use SlackAuthorizer
+
 post '/slack/command' do
   "OK"
 end

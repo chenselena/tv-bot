@@ -2,7 +2,7 @@
 
 require 'sinatra'
 
-use SlackAuthorizer
+use App::SlackAuthorizer
 
 post '/slack/command' do
   "OK"

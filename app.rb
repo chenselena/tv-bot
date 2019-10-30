@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 require 'sinatra'
+require_relative 'app/slack_authorizer'
 
-use App::SlackAuthorizer
+use SlackAuthorizer
 
 post '/slack/command' do
   "OK"

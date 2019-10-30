@@ -8,7 +8,7 @@ class AddRequestToQueue
   end
 
   def call(command)
-    raise AurgmentError "Invalid command #{command}" unless command.in?(["firework", "rickroll", "gong"])
+    raise AurgmentError "Invalid command #{command}" unless ["fireworks", "rickroll", "gong"].include?(command)
 
     @exchange.publish(command, :routing_key => @queue.name)
     @connection.close

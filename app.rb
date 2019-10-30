@@ -14,9 +14,7 @@ HELP_RESPONSE = "Use /tvplay to play a video on the screens. Example: /tvplay fi
 post '/slack/command' do
   case params['text'].to_s.strip
   when 'help', '' then HELP_RESPONSE
-  when 'firework'
-    FIREWORKS_RESPONSE
-    AddRequestToQueue.new.call("firework")
+  when 'firework', '' add_request_to_queue.call("firework")
   else INVALID_RESPONSE
   end
 end

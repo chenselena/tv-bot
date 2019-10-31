@@ -8,7 +8,7 @@ require_relative 'services/add_request_to_queue'
 use SlackAuthorizer
 
 FIRST_DEPLOY_MESSAGE = "Congratulations on your first deploy!!!!"
-INVALID_RESPONSE = "Sorry! It doesn't look like that's a valid video."
+INVALID_RESPONSE = "Sorry! It doesn't look like that's a valid command."
 HELP_RESPONSE = "Use /tvplay to play a video on the screens. Example: /tvplay fireworks"
 RICKROLL = "you just got rickrolled xd"
 
@@ -21,7 +21,7 @@ get '/rickroll' do
 end
 
 post '/slack/command' do
-  AddRequestToQueue.new.call("fireworks")
+  redirect '/fireworks'
 
   case params['text'].to_s.strip
   when 'help', '' then HELP_RESPONSE

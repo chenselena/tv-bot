@@ -25,8 +25,10 @@ post '/slack/command' do
 
   case params['text'].to_s.strip
   when 'help', '' then HELP_RESPONSE
-  when 'firework', '' then FIRST_DEPLOY_MESSAGE  
-  when 'rickroll', '' then RICKROLL
+  when 'fireworks'
+    FIRST_DEPLOY_MESSAGE  
+  when 'rickroll'
+    RICKROLL
   else INVALID_RESPONSE
   end
 end

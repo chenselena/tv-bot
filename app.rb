@@ -21,7 +21,7 @@ get '/rickroll' do
 end
 
 post '/slack/command' do
-  redirect '/rickroll'
+  redirect '/fireworks'
 
   case params['text'].to_s.strip
   when 'help', '' then HELP_RESPONSE

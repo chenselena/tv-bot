@@ -3,7 +3,7 @@
 class AddRequestToQueue
   def initialize
     start_queue_connection
-    @queue = @channel.queue("npfs.slack.tvbot", auto_delete: true)
+    @queue = @channel.queue("tv.bot.two", auto_delete: true)
     @exchange = @channel.default_exchange
   end
 

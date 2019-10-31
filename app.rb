@@ -16,13 +16,10 @@ get '/firework' do
 end
 
 post '/slack/command' do
+  AddRequestToQueue.new.call("fireworks")
   case params['text'].to_s.strip
   when 'help', '' then HELP_RESPONSE
-  when 'firework'
-    FIRST_DEPLOY_MESSAGE  
-    AddRequestToQueue.new.call("fireworks")
-  when 'rickroll'
-    AddRequestToQueue.new.call("rickroll")
+  when 'firework', '' then FIRST_DEPLOY_MESSAGE  
   else INVALID_RESPONSE
   end
 end

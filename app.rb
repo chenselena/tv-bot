@@ -12,7 +12,7 @@ INVALID_RESPONSE = "Sorry! It doesn't look like that's a valid video."
 HELP_RESPONSE = "Use /tvplay to play a video on the screens. Example: /tvplay fireworks"
 RICKROLL = "you just got rickrolled xd"
 
-get '/firework' do
+get '/fireworks' do
   AddRequestToQueue.new.call("fireworks")
 end
 
@@ -25,10 +25,8 @@ post '/slack/command' do
 
   case params['text'].to_s.strip
   when 'help', '' then HELP_RESPONSE
-  when 'fireworks'
-    FIRST_DEPLOY_MESSAGE  
-  when 'rickroll'
-    RICKROLL
+  when 'fireworks', '' then FIRST_DEPLOY_MESSAGE  
+  when 'rickroll', '' then RICKROLL
   else INVALID_RESPONSE
   end
 end

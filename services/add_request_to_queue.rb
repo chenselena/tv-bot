@@ -3,7 +3,7 @@
 class AddRequestToQueue
   def initialize
     start_queue_connection
-    @queue = @channel.queue("tv.bot.two", auto_delete: true)
+    @queue = @channel.queue("npfs.slack.tvbot", auto_delete: true)
     @exchange = @channel.default_exchange
   end
 
@@ -18,7 +18,7 @@ class AddRequestToQueue
   private
 
   def start_queue_connection
-    @connection = Bunny.new(ENV["CLOUDAMQP_CHARCOAL_URL"])
+    @connection = Bunny.new(ENV["CLOUDAMQP_URL"])
     @connection.start
     @channel = @connection.create_channel
   end

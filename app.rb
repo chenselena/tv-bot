@@ -35,6 +35,9 @@ post '/slack/command' do
   when 'rickroll'
     AddRequestToQueue.new.call('rickroll')
     RICKROLL
+  when ':arrow_up::arrow_up:  :arrow_down::arrow_down:  :arrow_left: :arrow_right: :arrow_left::arrow_right: :b: :a:'
+    AddRequestToQueue.new.call('konami')
+    '1337 h4k3r'
   else
     INVALID_RESPONSE
   end

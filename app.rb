@@ -11,6 +11,7 @@ FIRST_DEPLOY_MESSAGE = 'Congratulations on your first deploy!!!!'
 INVALID_RESPONSE = "Sorry! It doesn't look like that's a valid command."
 HELP_RESPONSE = 'Use /tvplay to play a video on the screens. Example: /tvplay fireworks'
 RICKROLL = 'Never gonna give them up!'
+STAYING_ALIVE = "Ah, ha, ha, ha, stayin' alive, stayin' alive"
 
 get '/fireworks' do
   AddRequestToQueue.new.call('fireworks')
@@ -18,6 +19,10 @@ end
 
 get '/rickroll' do
   AddRequestToQueue.new.call('rickroll')
+end
+
+get '/stay-alive' do
+  STAYING_ALIVE
 end
 
 post '/slack/command' do

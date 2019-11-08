@@ -38,6 +38,9 @@ post '/slack/command' do
   when ':arrow_up::arrow_up: :arrow_down::arrow_down: :arrow_left::arrow_right: :arrow_left::arrow_right: :b: :a:'
     AddRequestToQueue.new.call('konami')
     '1337 h4k3r'
+  when 'cat'
+    AddRequestToQueue.new.call('cat')
+    'Meow :cat:'
   else
     INVALID_RESPONSE
   end

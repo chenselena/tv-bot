@@ -41,6 +41,9 @@ post '/slack/command' do
   when 'cat'
     AddRequestToQueue.new.call('cat')
     'Meow :cat:'
+  when 'friday'
+    AddRequestToQueue.new.call('friday')
+    'Fun fun fun fun'
   else
     INVALID_RESPONSE
   end
